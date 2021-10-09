@@ -150,7 +150,22 @@ const questions = [
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+   inquirer
+    .prompt(questions)
+    .then(data => {
+        const content = generateMarkdown(data)
+
+        fs.writeFile('README.md', content, err => {
+            if (err) {
+              console.error(err)
+              return
+            }
+            //file written successfully
+            console.log('WROTE FILE SUCCESSFULLY')
+          })
+    });
+}
 
 // Function call to initialize app
 init();
