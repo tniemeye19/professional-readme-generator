@@ -25,13 +25,13 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'What is the description of your project (Required):',
+        message: 'What is the description of your project? (Required):',
         // ensure project description is given
         validate: nameInput => {
             if (nameInput) {
                 return true;
             } else {
-                console.log('Please Include a description of your project!')
+                console.log('Please enter a description of your project!')
             }
         }
     },
@@ -42,109 +42,189 @@ const questions = [
         message: 'Would you like to include a Table of Contents?',
         default: true
     },
-    // Readme Table of Contents Included
+    // Installation Section (Include Y/N)
     {
-        type: 'checkbox',
-        name: 'confirmToC_choices',
-        message: 'Please select the sections you would like to include in your Table of Contents (Check all that apply).',
-        choices: ['Installation', 'Usage', 'Contributing', 'Tests', 'Questions', 'License'],
-        when: ({ confirmToC }) => {
-            if (confirmToC) {
+        type: 'confirm',
+        name: 'confirmInstallation',
+        message: 'Would you like to create an installation section?',
+        default: true
+    },
+    {
+        type: 'input',
+        name: 'installationInfo',
+        message: 'Please insert the information you would like to add to the installation section here:',
+        when: ({ confirmInstallation }) => {
+            if (confirmInstallation) {
                 return true;
             } else {
                 return false;
             }
-        }
-    },
-    // Readme Installation
-    {
-        type: 'input',
-        name: 'installation',
-        message: 'For Installation: What is the established process to install your project?',
-        when: ({ confirmToC_choices /* something referencing installation */ }) => {
-            if (confirmToC_choices /* something referencing installation */) {
-                return true;
-            } else {
-                return false
-            }
-        }
-    },
-    // Readme Usage
-    {
-        type: 'input',
-        name: 'usage',
-        message: 'For Usage: Please include any examples/instructions that are pertinent to the use of your project:',
-        when: ({ confirmToC_choices /* something referencing usage */}) => {
-            if (confirmToC_choices /* something referencing usage */) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    },
-    // Readme Tests
-    {
-        type: 'input',
-        name: 'tests',
-        message: 'For Tests: Please include examples on how to run test for your application:',
-        when: ({ confirmToC_choices /* something referencing tests */}) => {
-            if (confirmToC_choices /* something referencing tests */) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    },
-    // Readme Contributing
-    {
-        type: 'input',
-        name: 'contributing',
-        message: 'For Contributing: Please include guidelines for those who wish to contribute to your work here:',
-        when: ({ confirmToC_choices /* something referencing contributing */}) => {
-            if (confirmToC_choices /* something referencing contributing */) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    },
-    // Readme Questions
-    {
-        type: 'input',
-        name: 'questions',
-        message: 'For Questions: Please enter your GitHub username:',
-        // ensure username is given
+        },
         validate: nameInput => {
             if (nameInput) {
                 return true;
             } else {
-                console.log('Please enter your GitHub username!');
-                return false;
-            }
-        },
-        when: ({ confirmToC_choices /* something referencing questions */}) => {
-            if (confirmToC_choices /* something referencing questions */) {
-                return true;
-            } else {
-                return false;
+                console.log('Please enter information for the installation section!')
             }
         }
     },
-    // Readme License
+    // Usage Section (Include Y/N)
     {
-        type: 'list',
-        name: 'license',
-        message: 'Please choose the license for your project below:',
-        choices: ['afl-3.0', 'apache-2.0', 'artistic-2.0', 'bsl-1.0', 'bsd-2-clause', 'bsd-3-clause', 'bsd-3-clause-clear', 'cc', 'cc0-1.0', 'cc-by-4.0', 'cc-by-sa-4.0', 'wtfpl', 'ecl-2.0', 'epl-1.0', 'epl-2.0', 'eupl-1.1', 'agpl-3.0', 'gpl', 'gpl-2.0', 'gpl-3.0', 'lgpl', 'lgpl-2.1', 'lgpl-3.0', 'isc', 'lppl-1.3c', 'ms-pl', 'mit', 'mpl-2.0', 'osl-3.0', 'postgresql', 'ofl-1.1', 'nsca', 'unlicense', 'zlib'],
-        when: ({ confirmToC_choices /* something referencing license */}) => {
-            if (confirmToC_choices /* something referencing license */) {
+        type: 'confirm',
+        name: 'confirmUsage',
+        message: 'Would you like to create a Usage section?',
+        default: true
+    },
+    {
+        type: 'input',
+        name: 'usageInfo',
+        message: 'Please insert the information you would like to add to the Usage section here:',
+        when: ({ confirmUsage }) => {
+            if (confirmUsage) {
                 return true;
             } else {
                 return false;
             }
+        },
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter information for the usage section!')
+            }
         }
-    }
-];
+    },
+    // Credits
+    {
+        type: 'confirm',
+        name: 'confirmCredits',
+        message: 'Would you like to create a Credits section?',
+        default: true
+    },
+    {
+        type: 'input',
+        name: 'creditsInfo',
+        message: 'Please enter your collaborators GitHub username(s). If there is more than one, please separate their usernames with a space. :',
+        when: ({ confirmCredits }) => {
+            if (confirmCredits) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your collaborators GitHub username(s)')
+            }
+        }
+    },
+    // Contributing Section (Include Y/N)
+    {
+        type: 'confirm',
+        name: 'confirmContributing',
+        message: 'Would you like to create a Contributing section?',
+        default: true
+    },
+    {
+        type: 'input',
+        name: 'contributingInfo',
+        message: 'Please insert the information you would like to add to the Contributing section here:',
+        when: ({ confirmContributing }) => {
+            if (confirmContributing) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter information for the installation section!')
+            }
+        }
+    },
+    // Tests Section (Include Y/N)
+    {
+        type: 'confirm',
+        name: 'confirmTests',
+        message: 'Would you like to create a Tests section?',
+        default: true
+    },
+    {
+        type: 'input',
+        name: 'testsInfo',
+        message: 'Please insert the information you would like to add to the Tests section here:',
+        when: ({ confirmTests }) => {
+            if (confirmTests) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter information for the installation section!')
+            }
+        }
+    },
+    // Questions Section (Include Y/N)
+    {
+        type: 'confirm',
+        name: 'confirmQuestions',
+        message: 'Would you like to create a Questions section?',
+        default: true
+    },
+    {
+        type: 'input',
+        name: 'githubUsername',
+        message: 'Please enter your GitHub username:',
+        when: ({ confirmQuestions }) => {
+            if (confirmQuestions) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub username!')
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'emailAddress',
+        message: 'Please enter your email:',
+        when: ({ confirmQuestions }) => {
+            if (confirmQuestions) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your email!')
+            }
+        }
+    },
+    // License Section (Include Y/N)
+    {
+        type: 'list',
+        name: 'confirmLicense',
+        message: 'Please choose the license for your project below:',
+        choices: ['No License', 'APM', 'AUR license', 'Bower', 'Cocoapods', 'Conda - License', 'CPAN', 'CRAN/METACRAN', 'Crates.io', 'CTAN', 'DUB', 'Eclipse Marketplace', 'GitHub', 'Hex.pm', 'NPM', 'Ore License', 'Packagist License', 'PyPI - License', 'REUSE Compliance', 'Weblate Component License']
+    },
+]
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
@@ -155,6 +235,9 @@ function init() {
     .prompt(questions)
     .then(data => {
         const content = generateMarkdown(data)
+        console.log('Content ', data)
+
+        // ToC_Choices(data);
 
         fs.writeFile('README.md', content, err => {
             if (err) {
