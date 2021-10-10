@@ -21,11 +21,18 @@ const questions = [
             }
         }
     },
+    // License Section
+    {
+        type: 'list',
+        name: 'licenseInfo',
+        message: 'Please choose the license for your project below:',
+        choices: ['No License', 'Apache 2.0 License', 'Boost Software License 1.0', 'GNU AGPLv3', 'GNU GPLv3', 'GNU GPLv2', 'GNU LGPLv3', 'ISC', 'MIT', 'Mozilla Public License 2.0', 'The Unlicense']
+    },
     // Readme Description
     {
         type: 'input',
         name: 'description',
-        message: 'What is the description of your project? (Required):',
+        message: 'Please include a description of your project (Required):',
         // ensure project description is given
         validate: nameInput => {
             if (nameInput) {
@@ -217,13 +224,7 @@ const questions = [
             }
         }
     },
-    // License Section (Include Y/N)
-    {
-        type: 'list',
-        name: 'confirmLicense',
-        message: 'Please choose the license for your project below:',
-        choices: ['No License', 'APM', 'AUR license', 'Bower', 'Cocoapods', 'Conda - License', 'CPAN', 'CRAN/METACRAN', 'Crates.io', 'CTAN', 'DUB', 'Eclipse Marketplace', 'GitHub', 'Hex.pm', 'NPM', 'Ore License', 'Packagist License', 'PyPI - License', 'REUSE Compliance', 'Weblate Component License']
-    },
+
 ]
 
 // TODO: Create a function to write README file
