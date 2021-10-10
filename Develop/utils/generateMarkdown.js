@@ -1,9 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  // ['Apache 2.0 License', 'Boost Software License 1.0', 'GNU AGPLv3', 'GNU GPLv3', 'GNU GPLv2', 'GNU LGPLv3', 'ISC', 'MIT', 'Mozilla Public License 2.0', 'The Unlicense']
-  // let licenseTitle = 'License';
-  // let licenseName = license;
   let licenseBadge = '';
   if (license === 'No License') {
     licenseBadge = '';
@@ -39,7 +36,7 @@ function renderLicenseBadge(license) {
     licenseBadge = 'https://img.shields.io/badge/License-Unlicense-blue.svg';
     return licenseBadge;
   } else {
-    console.log('How did you get here? (renderLicenseLink())')
+    console.log('How did you get here? (renderLicenseBadge())')
   }
   // Shields.io links from https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
 
@@ -98,11 +95,12 @@ function renderLicenseSection(license) {
 # Licensing
 
 [![License](${renderLicenseBadge(license)})](${renderLicenseLink(license)})
+
+---
     `
   }
-
 }
-
+// Installation Table of Contents List Item
 function renderToCinstallation(data) {
   if (data.confirmInstallation === true) {
     return `
@@ -112,17 +110,21 @@ function renderToCinstallation(data) {
     return ``;
   }
 }
-
+// Installation Body Section
 function renderInstallationSection(data) {
   if (data.confirmInstallation === true && data.installationInfo !== null) {
     return `
 ## Installation
 
 ${data.installationInfo}
+
+---
     `
+  } else {
+    return ``;
   }
 }
-
+// Usage Table of Contents List Item
 function renderToCusage(data) {
   if (data.confirmUsage === true) {
     return `
@@ -132,17 +134,21 @@ function renderToCusage(data) {
     return ``;
   }
 }
-
+// Usage Body Section
 function renderUsageSection(data) {
   if (data.confirmUsage === true && data.usageInfo !== null) {
     return `
 ## Usage
 
 ${data.usageInfo}
+
+---
     `
+  } else {
+    return ``;
   }
 }
-
+// Credits Table of Contents List Item
 function renderToCcredits(data) {
   if (data.confirmCredits === true) {
     return `
@@ -152,17 +158,23 @@ function renderToCcredits(data) {
     return ``;
   }
 }
-
+// Credits Body Section
 function renderCreditsSection(data) {
   if (data.confirmCredits === true && data.creditsInfo !== null) {
     return `
 ## Credits
 
+Below is a list of the people who I collaborated with for this project:
 ${data.creditsInfo}
+Thanks for all of the help!
+
+---
     `
+  } else {
+    return ``;
   }
 }
-
+// Contributing Table of Contents List Item
 function renderToCcontributing(data) {
   if (data.confirmContributing === true) {
     return `
@@ -172,17 +184,21 @@ function renderToCcontributing(data) {
     return ``;
   }
 }
-
+// Contributing Body Section
 function renderContributingSection(data) {
-  if (data.confirmContributing === true && data.icontributingInfo !== null) {
+  if (data.confirmContributing === true && data.contributingInfo !== null) {
     return `
-## Contribute
+## Contributing
 
-${data.contributeInfo}
+${data.contributingInfo}
+
+---
     `
+  } else {
+    return ``;
   }
 }
-
+// Tests Table of Contents List Item
 function renderToCtests(data) {
   if (data.confirmTests === true) {
     return `
@@ -192,17 +208,21 @@ function renderToCtests(data) {
     return ``;
   }
 }
-
+// Tests Body Section
 function renderTestsSection(data) {
   if (data.confirmTests === true && data.testsInfo !== null) {
     return `
-## Installation
+## Tests
 
 ${data.testsInfo}
+
+---
     `
+  } else {
+    return ``;
   }
 }
-
+// Questions Table of Contents List Item
 function renderToCquestions(data) {
   if (data.confirmQuestions === true) {
     return `
@@ -212,17 +232,21 @@ function renderToCquestions(data) {
     return ``;
   }
 }
-
+// Questions Body Section
 function renderQuestionsSection(data) {
   if (data.confirmQuestions === true && data.questionsInfo !== null) {
     return `
 ## Questions
 
-${data.questionsInfo}
+If you have any questions about this project, please see my [Github](https://github.com/${data.githubUsername}) or send me an [email](${data.emailAddress})!
+
+---
     `
+  } else {
+    return ``;
   }
 }
-
+// Table of Contents Section
 function renderTableOfContents(data) {
   if (data.confirmToC === true) {
     return `
@@ -246,11 +270,18 @@ function generateMarkdown(data) {
   return `
 # ${data.title}
 
+---
+
 ${renderLicenseSection(data.licenseInfo)}
 
 ${renderTableOfContents(data)}
 
-
+${renderInstallationSection(data)}
+${renderUsageSection(data)}
+${renderCreditsSection(data)}
+${renderContributingSection(data)}
+${renderTestsSection(data)}
+${renderQuestionsSection(data)}
 
 `;
 }

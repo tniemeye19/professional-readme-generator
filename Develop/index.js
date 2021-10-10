@@ -32,7 +32,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please include a description of your project (Required):',
+        message: 'Please include a detailed description of your project (Required):',
         // ensure project description is given
         validate: nameInput => {
             if (nameInput) {
@@ -175,7 +175,7 @@ const questions = [
             if (nameInput) {
                 return true;
             } else {
-                console.log('Please enter information for the installation section!')
+                console.log('Please enter information for the Tests section!')
             }
         }
     },
