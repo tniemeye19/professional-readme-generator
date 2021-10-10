@@ -111,7 +111,7 @@ const questions = [
     {
         type: 'input',
         name: 'creditsInfo',
-        message: 'Please enter your collaborators GitHub username(s). If there is more than one, please separate their usernames with a space. :',
+        message: 'Please enter your collaborators GitHub username(s). If there is more than one, please make a comma separated list:',
         when: ({ confirmCredits }) => {
             if (confirmCredits) {
                 return true;
@@ -237,8 +237,6 @@ function init() {
     .then(data => {
         const content = generateMarkdown(data)
         console.log('Content ', data)
-
-        // ToC_Choices(data);
 
         fs.writeFile('README.md', content, err => {
             if (err) {
