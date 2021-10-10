@@ -59,7 +59,7 @@ const questions = [
     {
         type: 'input',
         name: 'installationInfo',
-        message: 'Please insert the information you would like to add to the installation section here:',
+        message: 'What commands/information should the user know in order to use this repo? Input this information for the installation section here:',
         when: ({ confirmInstallation }) => {
             if (confirmInstallation) {
                 return true;
@@ -85,7 +85,7 @@ const questions = [
     {
         type: 'input',
         name: 'usageInfo',
-        message: 'Please insert the information you would like to add to the Usage section here:',
+        message: 'In order to use this repo, what does the user need to know? Please enter the information for the Usage section here:',
         when: ({ confirmUsage }) => {
             if (confirmUsage) {
                 return true;
@@ -111,7 +111,7 @@ const questions = [
     {
         type: 'input',
         name: 'creditsInfo',
-        message: 'Please enter your collaborators GitHub username(s). If there is more than one, please make a comma separated list:',
+        message: 'Who are your collaborators? Enter their GitHub username(s) as a comma separated list here:',
         when: ({ confirmCredits }) => {
             if (confirmCredits) {
                 return true;
@@ -137,7 +137,7 @@ const questions = [
     {
         type: 'input',
         name: 'contributingInfo',
-        message: 'Please insert the information you would like to add to the Contributing section here:',
+        message: 'For users who wish to contribute to this repo, what do they need to know? Please enter the information for the Contributing section here:',
         when: ({ confirmContributing }) => {
             if (confirmContributing) {
                 return true;
@@ -183,7 +183,7 @@ const questions = [
     {
         type: 'confirm',
         name: 'confirmQuestions',
-        message: 'Would you like to create a Questions section?',
+        message: 'Would you like to create a Questions section so others may contact you about your repo? Yes',
         default: true
     },
     {

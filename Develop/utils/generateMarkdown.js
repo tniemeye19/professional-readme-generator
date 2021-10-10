@@ -92,7 +92,7 @@ function renderLicenseSection(license) {
     return license;
   } else {
     return `
-# Licensing
+## Licensing
 
 [![License](${renderLicenseBadge(license)})](${renderLicenseLink(license)})
 
@@ -165,7 +165,9 @@ function renderCreditsSection(data) {
 ## Credits
 
 Below is a list of the people who I collaborated with for this project:
-${data.creditsInfo}
+
+**${data.creditsInfo}**
+
 Thanks for all of the help!
 
 ---
