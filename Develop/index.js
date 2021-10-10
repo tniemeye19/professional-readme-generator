@@ -238,7 +238,7 @@ function init() {
         const content = generateMarkdown(data)
         console.log('Content ', data)
 
-        fs.writeFile('README.md', content, err => {
+        fs.writeFile('./Develop/dist/README.md', content, err => {
             if (err) {
               console.error(err)
               return
