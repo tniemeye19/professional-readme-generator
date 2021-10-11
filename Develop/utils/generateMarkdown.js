@@ -259,6 +259,8 @@ ${renderToCcredits(data)}
 ${renderToCcontributing(data)}
 ${renderToCtests(data)}
 ${renderToCquestions(data)}
+
+---
     `
   } else if (data.confirmToC === false) {
     return ``;

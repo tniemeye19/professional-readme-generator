@@ -31,19 +31,19 @@
 
 * [Questions](#questions)
     
-    
+---
 
 
 ## Installation
 
-Please follow the installation command: `npm install`.
+Please use the command `npm install` in order to download the dependencies needed for this repo.
 
 ---
     
 
 ## Usage
 
-In the root directory, enter the following command to initiate the questions prompts: `node Develop/index`.
+In the root directory, enter the following command to initiate the question prompts: `node Develop/index`.
 
 ---
     
