@@ -1,14 +1,10 @@
 
 # Professional Readme Generator
 
----
-
 
 ## Licensing
 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
-
----
     
 
 
@@ -37,8 +33,6 @@
 ## Installation
 
 In order to use this Generator, please fork/dowload the repository. In the root directory of this project, please enter the following command into your command line `npm install`. This will load all of the necessary items needed for you to use this README generator.
-
----
     
 
 ## Usage
@@ -48,24 +42,20 @@ Once you have performed the installation directions, enter `node Develop/index` 
 Please see the below gif for a better understanding!
 
 ![README Generator Walkthrough](https://raw.githubusercontent.com/tniemeye19/professional-readme-generator/main/Develop/images/README-Generator-gif.gif)
-
----
     
 
 ## Credits
 
 Below is a list of the people who I collaborated with for this project:
-**tniemeye19**
-Thanks for all of the help!
 
----
+**tniemeye19**
+
+Thanks for all of the help!
     
 
 ## Contributing
 
 If you would like to contribute to this project, please adhere to the following guidelines: [Contributor Covenant](https://www.contributor-covenant.org/)
-
----
     
 
 ## Tests
@@ -84,7 +74,7 @@ Once you have the above completed, please input the following information when t
 - Would you like to create an installation section? `Yes`
 - What commands/information should the user know in order to use this repo? Input this information for the installation section here: `Please use the command npm install in order to download the dependencies needed for this repo.`
 - Would you like to create a Usage section? `Yes`
-- In order to use this repo, what does the user need to know? Please enter the information for the Usage section here: `In the root directory, enter the following commnand to initiate the questions prompts: node Develop/index.`
+- In order to use this repo, what does the user need to know? Please enter the information for the Usage section here: `In the root directory, enter the following command to initiate the questions prompts: node Develop/index.`
 - Would you like to create a Credits section? `Yes`
 - Who are your collaborators? Enter their GitHub username(s) as a comma separated list here: `github_username1, github_username2`
 - Would you like to make a Contributing section? `Yes`
@@ -102,12 +92,8 @@ This is what your markdown test file should look like once completed!
 You can also view the code for yourself in the test folder where you just created the file!
 
 
-
----
     
 
 ## Questions
 
 If you have any questions about this project, please see my [Github](https://github.com/tniemeye19) or send me an [email](timothy.niemeyer19@gmail.com)!
-
----
