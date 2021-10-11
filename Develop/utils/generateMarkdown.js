@@ -95,8 +95,6 @@ function renderLicenseSection(license) {
 ## Licensing
 
 [![License](${renderLicenseBadge(license)})](${renderLicenseLink(license)})
-
----
     `
   }
 }
@@ -141,8 +139,6 @@ function renderUsageSection(data) {
 ## Usage
 
 ${data.usageInfo}
-
----
     `
   } else {
     return ``;
@@ -169,8 +165,6 @@ Below is a list of the people who I collaborated with for this project:
 **${data.creditsInfo}**
 
 Thanks for all of the help!
-
----
     `
   } else {
     return ``;
@@ -193,8 +187,6 @@ function renderContributingSection(data) {
 ## Contributing
 
 ${data.contributingInfo}
-
----
     `
   } else {
     return ``;
@@ -217,8 +209,6 @@ function renderTestsSection(data) {
 ## Tests
 
 ${data.testsInfo}
-
----
     `
   } else {
     return ``;
@@ -241,8 +231,6 @@ function renderQuestionsSection(data) {
 ## Questions
 
 If you have any questions about this project, please see my [Github](https://github.com/${data.githubUsername}) or send me an [email](${data.emailAddress})!
-
----
     `
   } else {
     return ``;
@@ -259,8 +247,6 @@ ${renderToCcredits(data)}
 ${renderToCcontributing(data)}
 ${renderToCtests(data)}
 ${renderToCquestions(data)}
-
----
     `
   } else if (data.confirmToC === false) {
     return ``;
@@ -273,8 +259,6 @@ ${renderToCquestions(data)}
 function generateMarkdown(data) {
   return `
 # ${data.title}
-
----
 
 ${renderLicenseSection(data.licenseInfo)}
 
