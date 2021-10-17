@@ -115,8 +115,6 @@ function renderInstallationSection(data) {
 ## Installation
 
 ${data.installationInfo}
-
----
     `
   } else {
     return ``;
@@ -236,6 +234,14 @@ If you have any questions about this project, please see my [Github](https://git
     return ``;
   }
 }
+// Description Section
+function renderDescriptionSection(data) {
+  return `
+## Description
+
+${data.description}
+  `
+}
 // Table of Contents Section
 function renderTableOfContents(data) {
   if (data.confirmToC === true) {
@@ -261,6 +267,8 @@ function generateMarkdown(data) {
 # ${data.title}
 
 ${renderLicenseSection(data.licenseInfo)}
+
+${renderDescriptionSection(data)}
 
 ${renderTableOfContents(data)}
 
